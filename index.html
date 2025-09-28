@@ -12,19 +12,36 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f7fafc;
+            /* LOGO TILING BACKGROUND ADDED HERE */
+            background-image: url('https://github.com/MMB-LINK/mmblink/blob/main/mmb%20link%20lgo.jpeg?raw=true'); 
+            background-repeat: repeat;
+            background-size: 150px; /* Adjust size of repeating logo tile */
+            background-attachment: fixed; /* Keeps background fixed when scrolling */
         }
+        
+        /* Apply a subtle overlay to the body background to reduce logo intensity */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.98); /* Near-white overlay for contrast */
+            z-index: -1; /* Place behind all content */
+        }
+        
         .text-shadow-md {
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); 
         }
-        /* New Hero Background Image Style */
+        /* Hero Background Image Style (Separate from Logo Tiling) */
         .bg-hero-image {
-            /* Replace this placeholder URL with your actual banner image! */
             background-image: url('https://placehold.co/1600x600/2c3e50/ffffff?text=Innovative+Sustainable+Future'); 
             background-size: cover;
             background-position: center;
             position: relative;
         }
-        /* Optional: Add an overlay for text readability */
+        /* Dark overlay for Hero text readability */
         .bg-hero-image::before {
             content: '';
             position: absolute;
@@ -32,16 +49,16 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.3); /* Dark overlay */
+            background-color: rgba(0, 0, 0, 0.3); 
             z-index: 10;
         }
         .hero-content {
             position: relative;
             z-index: 20;
         }
-        /* Custom size for the logo image */
+        /* Custom size for the logo image in header/footer */
         .logo-img {
-            height: 40px; /* Adjust this value as needed for the header */
+            height: 40px; 
             width: auto;
         }
     </style>
@@ -196,18 +213,18 @@
         const modalImage = document.getElementById('modal-image');
         const closeModalBtn = document.getElementById('close-modal-btn');
 
-        // UPDATED PRODUCT DATA WITH REALISTIC PRICES AND ZEROS FOR "PRICE TO BE CONFIRMED"
+        // PRODUCT DATA with all confirmable prices set to 9999
         const products = {
             'solar': [
-                { id: 'solar-fan', name: 'Super Power mmb • link Solar Fan', price: 125000, description: 'A powerful, quiet, and oscillating fan with USB and LED light features. This AC/DC fan is equipped with a 3-speed adjustment, automatic left-to-right movement, and a gross weight of 6kg. Its dimensions are 144.5X15.3X37 cm.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Model%20name%20Super%20Power%20mmb%20%E2%80%A2%20link%20Solar%20Fan.jpeg' },
-                { id: 'solar-generator', name: 'Solar Power Generator', price: 750000, description: 'A powerful portable solar power generator featuring a 500W sine wave power supply and a 512 watt-hour LiFePO40312.8 battery, with a maximum discharge power of 600W. It\'s designed to provide reliable, clean energy for your devices.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Solar%20power%20generator%20500W%20sine%20wave%20512%20watt-hour%20battery.jpeg' },
-                { id: 'solar-generator-400w', name: 'Solar Power Generator (400W)', price: 480000, description: 'A solar power generator with a 400W power supply and a 384-hour, Iron Phosphate 30A 12.8V battery. It has a maximum discharge power of 400W.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Solar%20power%20generator%20400W%20power%20supply%20384%20hours%20Battery.jpeg' },
+                { id: 'solar-fan', name: 'Super Power mmb • link Solar Fan', price: 9999, description: 'A powerful, quiet, and oscillating fan with USB and LED light features. This AC/DC fan is equipped with a 3-speed adjustment, automatic left-to-right movement, and a gross weight of 6kg. Its dimensions are 144.5X15.3X37 cm.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Model%20name%20Super%20Power%20mmb%20%E2%80%A2%20link%20Solar%20Fan.jpeg' },
+                { id: 'solar-generator', name: 'Solar Power Generator', price: 9999, description: 'A powerful portable solar power generator featuring a 500W sine wave power supply and a 512 watt-hour LiFePO40312.8 battery, with a maximum discharge power of 600W. It\'s designed to provide reliable, clean energy for your devices.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Solar%20power%20generator%20500W%20sine%20wave%20512%20watt-hour%20battery.jpeg' },
+                { id: 'solar-generator-400w', name: 'Solar Power Generator (400W)', price: 9999, description: 'A solar power generator with a 400W power supply and a 384-hour, Iron Phosphate 30A 12.8V battery. It has a maximum discharge power of 400W.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Solar%20power%20generator%20400W%20power%20supply%20384%20hours%20Battery.jpeg' },
                 { id: 'lithium-battery', name: '16.5 Kilowatt Lithium Battery', price: 0, description: 'A high-capacity lithium battery with a touch screen control and a storage capacity of 16500Wh. It has a nominal voltage of 51.2VDC, an output of 10000W, and can be paralleled with up to 10 units for expanded power needs. It features RS485/CAN communication interfaces and is NSDS/UN38.3 certified.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/165%20kilowatts%20lithium%20battery.jpeg' },
-                { id: '10kw-inverter', name: '10KW Inverter', price: 1550000, description: 'A powerful 10KW inverter with a DC voltage of 48V. It features a maximum MPPT current of 160A and supports AC input/output of 220/230VAC. With a maximum PV input power of 10000W (5000W*2) and support for up to 6 parallel units, it\'s ideal for large-scale solar systems. It also includes RS232/RS485/dry contact communication interfaces and BMS communication.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/10kw%20inverter%20AC%20DW.jpeg' },
-                { id: 'fan-cooler', name: 'Fan Cooler', price: 95000, description: 'A powerful and versatile fan cooler with 45W power. It features 80° left and right oscillation, 8 speed settings, and a 9-hour timer function. Dimensions are 82x15x15CM.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Model%20fan%20cooler.jpeg' }
+                { id: '10kw-inverter', name: '10KW Inverter', price: 9999, description: 'A powerful 10KW inverter with a DC voltage of 48V. It features a maximum MPPT current of 160A and supports AC input/output of 220/230VAC. With a maximum PV input power of 10000W (5000W*2) and support for up to 6 parallel units, it\'s ideal for large-scale solar systems. It also includes RS232/RS485/dry contact communication interfaces and BMS communication.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/10kw%20inverter%20AC%20DW.jpeg' },
+                { id: 'fan-cooler', name: 'Fan Cooler', price: 9999, description: 'A powerful and versatile fan cooler with 45W power. It features 80° left and right oscillation, 8 speed settings, and a 9-hour timer function. Dimensions are 82x15x15CM.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Model%20fan%20cooler.jpeg' }
             ],
             'bikes': [
-                { id: 'd100-ebike', name: 'D100 Electric Bike', price: 620000, description: 'A powerful electric bike with a 1000W motor, 60V20AH battery, and a top speed of 40-50 km/h. Features include a speedometer LED, remote control, anti-theft alarm, and cruise control.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Bike%20name%20D100.jpeg' },
+                { id: 'd100-ebike', name: 'D100 Electric Bike', price: 9999, description: 'A powerful electric bike with a 1000W motor, 60V20AH battery, and a top speed of 40-50 km/h. Features include a speedometer LED, remote control, anti-theft alarm, and cruise control.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Bike%20name%20D100.jpeg' },
                 { id: 'd11-gt-ebike', name: 'D11 GT Electric Bike', price: 0, description: 'A high-performance electric bike featuring a 1200W motor, 72V32AH lead acid battery, and dual disc brakes for enhanced safety. It boasts a max speed of 50-55 km/h and a range of 50-60 km.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Bike%20name%20D11%20GT.jpeg' }
             ]
         };
