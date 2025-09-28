@@ -12,14 +12,14 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f7fafc;
-            /* LOGO TILING BACKGROUND ADDED HERE */
+            /* LOGO TILING BACKGROUND - Increased opacity for better visibility */
             background-image: url('https://github.com/MMB-LINK/mmblink/blob/main/mmb%20link%20lgo.jpeg?raw=true'); 
             background-repeat: repeat;
-            background-size: 150px; /* Adjust size of repeating logo tile */
-            background-attachment: fixed; /* Keeps background fixed when scrolling */
+            background-size: 120px; /* Adjusted size of repeating logo tile */
+            background-attachment: fixed; 
         }
         
-        /* Apply a subtle overlay to the body background to reduce logo intensity */
+        /* Apply a subtle overlay to the body background to ensure contrast */
         body::before {
             content: '';
             position: fixed;
@@ -27,8 +27,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(255, 255, 255, 0.98); /* Near-white overlay for contrast */
-            z-index: -1; /* Place behind all content */
+            /* Overlay set to 90% white to let the 10% logo pattern shine through */
+            background-color: rgba(255, 255, 255, 0.90); 
+            z-index: -1; 
         }
         
         .text-shadow-md {
@@ -213,19 +214,19 @@
         const modalImage = document.getElementById('modal-image');
         const closeModalBtn = document.getElementById('close-modal-btn');
 
-        // PRODUCT DATA with all confirmable prices set to 9999
+        // PRODUCT DATA with all prices now set to 9999
         const products = {
             'solar': [
                 { id: 'solar-fan', name: 'Super Power mmb • link Solar Fan', price: 9999, description: 'A powerful, quiet, and oscillating fan with USB and LED light features. This AC/DC fan is equipped with a 3-speed adjustment, automatic left-to-right movement, and a gross weight of 6kg. Its dimensions are 144.5X15.3X37 cm.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Model%20name%20Super%20Power%20mmb%20%E2%80%A2%20link%20Solar%20Fan.jpeg' },
                 { id: 'solar-generator', name: 'Solar Power Generator', price: 9999, description: 'A powerful portable solar power generator featuring a 500W sine wave power supply and a 512 watt-hour LiFePO40312.8 battery, with a maximum discharge power of 600W. It\'s designed to provide reliable, clean energy for your devices.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Solar%20power%20generator%20500W%20sine%20wave%20512%20watt-hour%20battery.jpeg' },
                 { id: 'solar-generator-400w', name: 'Solar Power Generator (400W)', price: 9999, description: 'A solar power generator with a 400W power supply and a 384-hour, Iron Phosphate 30A 12.8V battery. It has a maximum discharge power of 400W.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Solar%20power%20generator%20400W%20power%20supply%20384%20hours%20Battery.jpeg' },
-                { id: 'lithium-battery', name: '16.5 Kilowatt Lithium Battery', price: 0, description: 'A high-capacity lithium battery with a touch screen control and a storage capacity of 16500Wh. It has a nominal voltage of 51.2VDC, an output of 10000W, and can be paralleled with up to 10 units for expanded power needs. It features RS485/CAN communication interfaces and is NSDS/UN38.3 certified.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/165%20kilowatts%20lithium%20battery.jpeg' },
+                { id: 'lithium-battery', name: '16.5 Kilowatt Lithium Battery', price: 9999, description: 'A high-capacity lithium battery with a touch screen control and a storage capacity of 16500Wh. It has a nominal voltage of 51.2VDC, an output of 10000W, and can be paralleled with up to 10 units for expanded power needs. It features RS485/CAN communication interfaces and is NSDS/UN38.3 certified.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/165%20kilowatts%20lithium%20battery.jpeg' },
                 { id: '10kw-inverter', name: '10KW Inverter', price: 9999, description: 'A powerful 10KW inverter with a DC voltage of 48V. It features a maximum MPPT current of 160A and supports AC input/output of 220/230VAC. With a maximum PV input power of 10000W (5000W*2) and support for up to 6 parallel units, it\'s ideal for large-scale solar systems. It also includes RS232/RS485/dry contact communication interfaces and BMS communication.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/10kw%20inverter%20AC%20DW.jpeg' },
                 { id: 'fan-cooler', name: 'Fan Cooler', price: 9999, description: 'A powerful and versatile fan cooler with 45W power. It features 80° left and right oscillation, 8 speed settings, and a 9-hour timer function. Dimensions are 82x15x15CM.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Model%20fan%20cooler.jpeg' }
             ],
             'bikes': [
                 { id: 'd100-ebike', name: 'D100 Electric Bike', price: 9999, description: 'A powerful electric bike with a 1000W motor, 60V20AH battery, and a top speed of 40-50 km/h. Features include a speedometer LED, remote control, anti-theft alarm, and cruise control.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Bike%20name%20D100.jpeg' },
-                { id: 'd11-gt-ebike', name: 'D11 GT Electric Bike', price: 0, description: 'A high-performance electric bike featuring a 1200W motor, 72V32AH lead acid battery, and dual disc brakes for enhanced safety. It boasts a max speed of 50-55 km/h and a range of 50-60 km.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Bike%20name%20D11%20GT.jpeg' }
+                { id: 'd11-gt-ebike', name: 'D11 GT Electric Bike', price: 9999, description: 'A high-performance electric bike featuring a 1200W motor, 72V32AH lead acid battery, and dual disc brakes for enhanced safety. It boasts a max speed of 50-55 km/h and a range of 50-60 km.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Bike%20name%20D11%20GT.jpeg' }
             ]
         };
 
@@ -243,10 +244,10 @@
             grid.innerHTML = '';
             productsArray.forEach(product => {
                 // Use a proper locale for Nigerian Naira formatting
-                const priceText = product.price > 0 ? `₦${product.price.toLocaleString('en-NG')}` : 'Price to be Confirmed';
+                const priceText = `₦${product.price.toLocaleString('en-NG')}`; // All prices are 9999 now
                 
-                // Conditional styling for the price when it's to be confirmed
-                const priceColorClass = product.price > 0 ? 'text-gray-900' : 'text-red-600';
+                // Price color is always black now that all prices are confirmed
+                const priceColorClass = 'text-gray-900';
 
                 const productCard = `
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
@@ -291,9 +292,8 @@
                     const productId = button.dataset.productId;
                     const product = allProducts[productId];
                     if (product) {
-                        const priceMessage = product.price > 0 
-                            ? `The listed price is ₦${product.price.toLocaleString('en-NG')}.`
-                            : 'I would like to get the current price for this item.';
+                        // Message updated for uniform pricing
+                        const priceMessage = `The listed price is ₦${product.price.toLocaleString('en-NG')}.`;
                         
                         const message = `Hello, I would like to order the product: *${product.name}*. ${priceMessage} Please confirm availability and the total cost.`;
                         const encodedMessage = encodeURIComponent(message);
