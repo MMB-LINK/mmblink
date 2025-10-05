@@ -17,7 +17,7 @@
         .text-shadow-md {
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
         }
-        /* Hero Background Image Style (Separate from Logo Tiling) */
+        /* Hero Background Image Style */
         .bg-hero-image {
             background-image: url('https://placehold.co/1600x600/2c3e50/ffffff?text=Innovative+Sustainable+Future'); 
             background-size: cover;
@@ -39,18 +39,29 @@
             position: relative;
             z-index: 20;
         }
-        /* Custom size for the logo image in header/footer - Increased size and responsiveness */
+        
+        /* === CUSTOM LOGO STYLES FOR WIDER LOOK === */
         .logo-img {
-            height: 48px; /* Increased from 40px */
+            height: 40px; /* Reduced fixed height */
             width: auto;
-            max-width: 100%;
+            max-width: 150px; /* Allows more width on small screens */
+            object-fit: contain; /* Important: ensures image fits and stretches to max-width */
         }
-        /* Adjusted size for footer logo for better mobile display */
+        
         .footer-logo-img {
-            height: 55px; /* Slightly larger in the footer */
+            height: 60px; /* Taller in the footer */
+            max-width: 200px; /* Wider in the footer */
             width: auto;
-            max-width: 100%;
+            object-fit: contain;
         }
+
+        @media (min-width: 768px) {
+            .logo-img {
+                max-width: 250px; /* Even wider on desktop */
+                height: 55px; /* Taller on desktop */
+            }
+        }
+        /* ========================================= */
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
