@@ -40,25 +40,40 @@
             z-index: 20;
         }
         
-        /* === CUSTOM LOGO STYLES FOR MAXIMUM VISIBILITY - NOW EVEN BIGGER === */
+        /* === CUSTOM LOGO STYLES FOR WIDER LOOK === */
         .logo-img {
-            height: 75px; /* Significantly taller */
+            height: 75px; /* Keep height same as before */
             width: auto;
-            max-width: 250px; /* Significantly wider on small screens */
+            max-width: 350px; /* **MAXIMIZED WIDTH** on small screens */
             object-fit: contain; 
         }
         
         .footer-logo-img {
-            height: 85px; /* Even taller in the footer */
-            max-width: 300px; /* Even wider in the footer */
+            height: 85px; 
+            max-width: 400px; /* **MAXIMIZED WIDTH** in the footer */
             width: auto;
             object-fit: contain;
         }
 
         @media (min-width: 768px) {
             .logo-img {
-                max-width: 400px; /* VERY WIDE on desktop */
-                height: 100px; /* VERY TALL on desktop */
+                max-width: 500px; /* **EXTREMELY WIDE** on desktop */
+                height: 100px; 
+            }
+        }
+
+        /* === FIX FOR HERO SUBTEXT WRAPPING === */
+        .hero-subtext {
+            /* Force the line to be constrained by a max-width and use a smaller font size on mobile */
+            font-size: 1rem; /* Smaller font on mobile */
+            line-height: 1.5;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (min-width: 768px) {
+            .hero-subtext {
+                font-size: 1.25rem; /* Larger font on desktop */
             }
         }
         /* ========================================= */
@@ -95,7 +110,7 @@
         <section class="bg-hero-image text-white py-24 md:py-32 px-4">
             <div class="container mx-auto text-center hero-content">
                 <h1 class="text-4xl md:text-6xl font-extrabold text-white text-shadow-md">Smart Life Easy Life</h1>
-                <p class="mt-4 text-lg md:text-xl font-light text-shadow-md">Innovative solutions for a sustainable future.</p>
+                <p class="mt-4 font-light text-shadow-md hero-subtext">Innovative solutions for a sustainable future.</p>
                 <a href="#products" class="mt-8 inline-block bg-black text-white font-bold py-3 px-8 rounded-full shadow-xl hover:bg-gray-800 transition-all transform hover:scale-105">Discover Products</a>
             </div>
         </section>
@@ -144,8 +159,8 @@
                 </div>
             </div>
         </section>
-
-        </main>
+        
+    </main>
 
     <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 hidden">
         <div class="relative max-w-4xl max-h-[90vh]">
@@ -210,7 +225,7 @@
                 { id: 'solar-fan', name: 'Super Power mmb • link Solar Fan', price: 9999, description: 'A powerful, quiet, and oscillating fan with USB and LED light features. This AC/DC fan is equipped with a 3-speed adjustment, automatic left-to-right movement, and a gross weight of 6kg. Its dimensions are 144.5X15.3X37 cm.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Model%20name%20Super%20Power%20mmb%20%E2%80%A2%20link%20Solar%20Fan.jpeg' },
                 { id: 'solar-generator', name: 'Solar Power Generator', price: 9999, description: 'A powerful portable solar power generator featuring a 500W sine wave power supply and a 512 watt-hour LiFePO40312.8 battery, with a maximum discharge power of 600W. It\'s designed to provide reliable, clean energy for your devices.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Solar%20power%20generator%20500W%20sine%20wave%20512%20watt-hour%20battery.jpeg' },
                 { id: 'solar-generator-400w', name: 'Solar Power Generator (400W)', price: 9999, description: 'A solar power generator with a 400W power supply and a 384-hour, Iron Phosphate 30A 12.8V battery. It has a maximum discharge power of 400W.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Solar%20power%20generator%20400W%20power%20supply%20384%20hours%20Battery.jpeg' },
-                { id: 'lithium-battery', name: '16.5 Kilowatt Lithium Battery', price: 9999, description: 'A high-capacity lithium battery with a touch screen control and a storage capacity of 16500Wh. It has a nominal voltage of 51.2VDC, an output of 10000W, and can be paralleled with up to 10 units for expanded power needs. It features RS485/CAN communication interfaces and is NSDS/UN38.3 certified.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/165%20kilowatts%20lithium%20battery.jpeg' },
+                { id: 'lithium-battery', name: '16.5 Kilowatt Lithium Battery', price: 9999, description: 'A high-capacity lithium battery with a touch screen control and a storage capacity of 16500Wh. It has a nominal voltage: 51.2VDC, an output of 10000W, and can be paralleled with up to 10 units for expanded power needs. It features RS485/CAN communication interfaces and is NSDS/UN38.3 certified.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/165%20kilowatts%20lithium%20battery.jpeg' },
                 { id: '10kw-inverter', name: '10KW Inverter', price: 9999, description: 'A powerful 10KW inverter with a DC voltage of 48V. It features a maximum MPPT current of 160A and supports AC input/output of 220/230VAC. With a maximum PV input power of 10000W (5000W*2) and support for up to 6 parallel units, it\'s ideal for large-scale solar systems. It also includes RS232/RS485/dry contact communication interfaces and BMS communication.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/10kw%20inverter%20AC%20DW.jpeg' },
                 { id: 'fan-cooler', name: 'Fan Cooler', price: 9999, description: 'A powerful and versatile fan cooler with 45W power. It features 80° left and right oscillation, 8 speed settings, and a 9-hour timer function. Dimensions are 82x15x15CM.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Model%20fan%20cooler.jpeg' }
             ],
