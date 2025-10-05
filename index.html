@@ -11,29 +11,11 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7fafc;
-            /* LOGO TILING BACKGROUND - Increased opacity for better visibility */
-            background-image: url('https://github.com/MMB-LINK/mmblink/blob/main/mmb%20link%20lgo.jpeg?raw=true'); 
-            background-repeat: repeat;
-            background-size: 120px; /* Adjusted size of repeating logo tile */
-            background-attachment: fixed; 
-        }
-        
-        /* Apply a subtle overlay to the body background to ensure contrast */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            /* Overlay set to 90% white to let the 10% logo pattern shine through */
-            background-color: rgba(255, 255, 255, 0.90); 
-            z-index: -1; 
+            background-color: #f7fafc; /* Tailwind's bg-gray-100 */
         }
         
         .text-shadow-md {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
         }
         /* Hero Background Image Style (Separate from Logo Tiling) */
         .bg-hero-image {
@@ -57,90 +39,97 @@
             position: relative;
             z-index: 20;
         }
-        /* Custom size for the logo image in header/footer */
+        /* Custom size for the logo image in header/footer - Increased size and responsiveness */
         .logo-img {
-            height: 40px; 
+            height: 48px; /* Increased from 40px */
             width: auto;
+            max-width: 100%;
+        }
+        /* Adjusted size for footer logo for better mobile display */
+        .footer-logo-img {
+            height: 55px; /* Slightly larger in the footer */
+            width: auto;
+            max-width: 100%;
         }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-    <header class="bg-white shadow-md p-4 sticky top-0 z-50">
+    <header class="bg-white shadow-lg p-4 sticky top-0 z-50">
         <nav class="container mx-auto flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-gray-900">
                 <img src="https://github.com/MMB-LINK/mmblink/blob/main/mmb%20link%20lgo.jpeg?raw=true" alt="MMB Link Logo" class="logo-img">
             </a>
             <div class="hidden md:flex space-x-6">
-                <a href="#" class="text-gray-600 hover:text-indigo-600 transition-colors">Home</a>
-                <a href="#products" class="text-gray-600 hover:text-indigo-600 transition-colors">Products</a>
-                <a href="#about" class="text-gray-600 hover:text-indigo-600 transition-colors">About</a>
-                <a href="#contact" class="text-gray-600 hover:text-indigo-600 transition-colors">Contact</a>
+                <a href="#" class="text-gray-600 hover:text-indigo-600 transition-colors font-medium">Home</a>
+                <a href="#products" class="text-gray-600 hover:text-indigo-600 transition-colors font-medium">Products</a>
+                <a href="#about" class="text-gray-600 hover:text-indigo-600 transition-colors font-medium">About</a>
+                <a href="#contact" class="text-gray-600 hover:text-indigo-600 transition-colors font-medium">Contact</a>
             </div>
-            <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-gray-900 transition-colors focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 hover:text-gray-900 transition-colors focus:outline-none p-2 rounded-md">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
-            <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-200 rounded-md transition-colors">Home</a>
-            <a href="#products" class="block px-4 py-2 text-gray-600 hover:bg-gray-200 rounded-md transition-colors">Products</a>
-            <a href="#about" class="block px-4 py-2 text-gray-600 hover:bg-gray-200 rounded-md transition-colors">About</a>
-            <a href="#contact" class="block px-4 py-2 text-gray-600 hover:bg-gray-200 rounded-md transition-colors">Contact</a>
+        <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2 container mx-auto">
+            <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition-colors">Home</a>
+            <a href="#products" class="block px-4 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition-colors">Products</a>
+            <a href="#about" class="block px-4 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition-colors">About</a>
+            <a href="#contact" class="block px-4 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition-colors">Contact</a>
         </div>
     </header>
 
     <main>
-        <section class="bg-hero-image text-white py-32 px-4">
+        <section class="bg-hero-image text-white py-24 md:py-32 px-4">
             <div class="container mx-auto text-center hero-content">
                 <h1 class="text-4xl md:text-6xl font-extrabold text-white text-shadow-md">Smart Life Easy Life</h1>
                 <p class="mt-4 text-lg md:text-xl font-light text-shadow-md">Innovative solutions for a sustainable future.</p>
-                <a href="#products" class="mt-8 inline-block bg-black text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-800 transition-colors transform hover:scale-105">Discover Products</a>
+                <a href="#products" class="mt-8 inline-block bg-black text-white font-bold py-3 px-8 rounded-full shadow-xl hover:bg-gray-800 transition-all transform hover:scale-105">Discover Products</a>
             </div>
         </section>
 
-        <section id="about" class="container mx-auto py-12 px-4">
+        <section id="about" class="container mx-auto py-16 px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Mission & Vision</h2>
-                    <p class="text-gray-600 leading-relaxed">
-                        To make sustainable living simple, affordable, and stylish for every household. We are geared towards building a better, more sustainable life for millions around the world. Our vision is to create innovative solutions that only serve today’s needs but also preserve the future for generations to come. With every product we design, MMB Link is committed to driving the future toward a smart, easy life.
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Our Mission & Vision</h2>
+                    <p class="text-gray-600 leading-relaxed text-lg">
+                        To make sustainable living simple, affordable, and stylish for every household. We are geared towards building a better, more sustainable life for millions around the world. Our vision is to create innovative solutions that not only serve today’s needs but also preserve the future for generations to come. With every product we design, MMB Link is committed to driving the future toward a smart, easy life.
                     </p>
                 </div>
                 <div>
-                    <img src="https://placehold.co/600x400/cccccc/000000?text=Sustainable+Energy" alt="Sustainable Living" class="w-full h-auto rounded-xl shadow-lg">
+                    <img src="https://placehold.co/600x400/cccccc/000000?text=Sustainable+Energy" alt="Sustainable Living" class="w-full h-auto rounded-xl shadow-2xl">
                 </div>
             </div>
         </section>
         
         <hr class="border-gray-300 mx-auto max-w-7xl">
 
-        <section id="products" class="container mx-auto py-12 px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">Our Products</h2>
+        <section id="products" class="container mx-auto py-16 px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">Our Products</h2>
 
             <div class="mb-12">
-                <h3 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 pb-2">Solar Gadgets</h3>
-                <div id="solar-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    </div>
+                <h3 class="text-2xl font-semibold mb-8 border-b-2 border-indigo-600 text-indigo-700 pb-2">Solar Gadgets ☀️</h3>
+                <div id="solar-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                </div>
             </div>
             
             <hr class="border-gray-200 my-8">
 
             <div>
-                <h3 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 pb-2">Bikes</h3>
-                <div id="bike-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    </div>
+                <h3 class="text-2xl font-semibold mb-8 border-b-2 border-indigo-600 text-indigo-700 pb-2">Bikes 🚲</h3>
+                <div id="bike-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                </div>
             </div>
 
         </section>
 
-        <section class="bg-white py-12 px-4">
+        <section class="bg-white py-12 px-4 shadow-inner">
             <div class="container mx-auto text-center">
-                <h2 class="text-3xl font-bold mb-4">What Our Customers Say</h2>
+                <h2 class="text-3xl font-bold mb-6 text-gray-900">What Our Customers Say</h2>
                 <div class="max-w-xl mx-auto">
-                    <p class="text-gray-600 italic">"The solar power bank is a game-changer! It's so reliable and easy to use. I love knowing I'm using clean energy to power my devices."</p>
-                    <p class="font-semibold mt-4 text-gray-900">- A Satisfied Customer</p>
+                    <p class="text-gray-600 italic text-lg leading-relaxed">"The solar power bank is a game-changer! It's so reliable and easy to use. I love knowing I'm using clean energy to power my devices. MMB Link delivers."</p>
+                    <p class="font-bold mt-6 text-gray-900 text-lg">- A Satisfied Customer</p>
                 </div>
             </div>
         </section>
@@ -150,8 +139,8 @@
                 <h2 class="text-3xl font-bold mb-4">Join Our Mailing List</h2>
                 <p class="mb-6">Sign up for exclusive updates on new solar products and special discounts.</p>
                 <form class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <input type="email" placeholder="Enter your email" class="p-3 rounded-lg text-gray-900 w-full sm:w-2/3 focus:outline-none focus:ring-2 focus:ring-gray-300" required>
-                    <button type="submit" class="bg-white text-gray-900 font-bold py-3 px-8 rounded-lg hover:bg-gray-200 transition-colors w-full sm:w-1/3">Subscribe</button>
+                    <input type="email" placeholder="Enter your email" class="p-3 rounded-lg text-gray-900 w-full sm:flex-grow focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
+                    <button type="submit" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition-colors w-full sm:w-auto">Subscribe</button>
                 </form>
             </div>
         </section>
@@ -159,38 +148,38 @@
 
     <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 hidden">
         <div class="relative max-w-4xl max-h-[90vh]">
-            <button id="close-modal-btn" class="absolute top-4 right-4 text-white text-3xl font-bold hover:text-gray-300 transition-colors">
+            <button id="close-modal-btn" class="absolute -top-10 md:-top-8 right-0 text-white text-5xl font-bold hover:text-gray-300 transition-colors focus:outline-none">
                 &times;
             </button>
-            <img id="modal-image" src="" alt="Full-size product image" class="rounded-xl shadow-lg max-w-full max-h-[85vh] object-contain">
+            <img id="modal-image" src="" alt="Full-size product image" class="rounded-xl shadow-2xl max-w-full max-h-[85vh] object-contain">
         </div>
     </div>
 
-    <footer id="contact" class="bg-black text-gray-300 py-12">
-        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
-            <div>
+    <footer id="contact" class="bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+            <div class="md:col-span-1">
                 <h3 class="text-xl font-bold text-white mb-4">
-                    <img src="https://github.com/MMB-LINK/mmblink/blob/main/mmb%20link%20lgo.jpeg?raw=true" alt="MMB Link Logo" class="h-10 mx-auto md:mx-0 mb-2">
+                    <img src="https://github.com/MMB-LINK/mmblink/blob/main/mmb%20link%20lgo.jpeg?raw=true" alt="MMB Link Logo" class="footer-logo-img mx-auto md:mx-0 mb-3">
                 </h3>
                 <p class="text-sm">Driven toward a smart, easy life with innovative, sustainable solutions.</p>
                 <div class="flex justify-center md:justify-start space-x-4 mt-4">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Facebook</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Instagram</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">TikTok</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">X (Twitter)</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors">Facebook</a>
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors">Instagram</a>
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors">TikTok</a>
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors">X (Twitter)</a>
+                    <a href="#" class="text-gray-400 hover:text-indigo-400 transition-colors">LinkedIn</a>
                 </div>
             </div>
-            <div>
+            <div class="md:col-span-1">
                 <h3 class="text-xl font-bold text-white mb-4">Quick Links</h3>
-                <ul class="space-y-2">
+                <ul class="space-y-2 text-sm">
                     <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
                     <li><a href="#" class="hover:text-white transition-colors">Terms & Conditions</a></li>
                     <li><a href="#" class="hover:text-white transition-colors">Refund Policy</a></li>
                     <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
                 </ul>
             </div>
-            <div>
+            <div class="md:col-span-2">
                 <h3 class="text-xl font-bold text-white mb-4">Contact Us</h3>
                 <p class="text-sm">Phone: <a href="tel:+2349071198792" class="hover:text-white transition-colors">+234 907 119 8792</a></p>
                 <p class="text-sm mt-2">WhatsApp: <a href="https://wa.me/2349071198792" class="hover:text-white transition-colors">+234 907 119 8792</a></p>
@@ -198,7 +187,7 @@
                 <p class="text-sm mt-2">Address: Abuja, Nigeria </p>
             </div>
         </div>
-        <div class="text-center mt-8 text-gray-500 text-sm">
+        <div class="text-center mt-8 text-gray-500 text-sm border-t border-gray-700 pt-6 mx-auto container px-4">
             <p>&copy; 2025 MMB Link. All rights reserved. <br> **Worldwide delivery available.** Delivery fee to be finalized.</p>
         </div>
     </footer>
@@ -214,7 +203,7 @@
         const modalImage = document.getElementById('modal-image');
         const closeModalBtn = document.getElementById('close-modal-btn');
 
-        // PRODUCT DATA with all prices now set to 9999
+        // PRODUCT DATA (no changes needed here)
         const products = {
             'solar': [
                 { id: 'solar-fan', name: 'Super Power mmb • link Solar Fan', price: 9999, description: 'A powerful, quiet, and oscillating fan with USB and LED light features. This AC/DC fan is equipped with a 3-speed adjustment, automatic left-to-right movement, and a gross weight of 6kg. Its dimensions are 144.5X15.3X37 cm.', image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Model%20name%20Super%20Power%20mmb%20%E2%80%A2%20link%20Solar%20Fan.jpeg' },
@@ -235,6 +224,7 @@
             ...products.bikes.reduce((acc, p) => ({ ...acc, [p.id]: p }), {}) 
         };
 
+        // Renders product cards into the specified grid
         const renderProducts = (gridId, productsArray) => {
             const grid = document.getElementById(gridId);
             if (!grid) {
@@ -244,20 +234,18 @@
             grid.innerHTML = '';
             productsArray.forEach(product => {
                 // Use a proper locale for Nigerian Naira formatting
-                const priceText = `₦${product.price.toLocaleString('en-NG')}`; // All prices are 9999 now
-                
-                // Price color is always black now that all prices are confirmed
+                const priceText = `₦${product.price.toLocaleString('en-NG')}`; 
                 const priceColorClass = 'text-gray-900';
 
                 const productCard = `
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
-                        <img src="${product.image}" alt="${product.name}" class="w-full h-64 object-cover cursor-pointer product-image" data-full-image="${product.image}">
-                        <div class="p-6">
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden transform transition-transform duration-300 hover:scale-[1.02]">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-56 object-cover cursor-pointer product-image" data-full-image="${product.image}">
+                        <div class="p-5">
                             <h4 class="text-xl font-semibold text-gray-900 mb-2">${product.name}</h4>
-                            <p class="text-gray-600 mb-4 text-sm">${product.description}</p>
+                            <p class="text-gray-600 mb-4 text-sm min-h-[4rem]">${product.description}</p>
                             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mt-4 pt-4 border-t border-gray-100">
-                                <span class="text-2xl font-bold ${priceColorClass} mb-2 sm:mb-0">${priceText}</span>
-                                <button class="whatsapp-order-btn bg-gray-800 text-white font-semibold py-2 px-4 rounded-full hover:bg-gray-900 transition-colors text-sm" data-product-id="${product.id}">Order on WhatsApp</button>
+                                <span class="text-2xl font-bold ${priceColorClass} mb-3 sm:mb-0">${priceText}</span>
+                                <button class="whatsapp-order-btn bg-indigo-600 text-white font-semibold py-2 px-4 rounded-full hover:bg-indigo-700 transition-colors text-sm shadow-md" data-product-id="${product.id}">Order on WhatsApp</button>
                             </div>
                         </div>
                     </div>
@@ -266,6 +254,7 @@
             });
         };
         
+        // Sets up event listeners for the new product elements
         const setupInteractions = () => {
              // 1. Setup Image Modal functionality
             document.querySelectorAll('.product-image').forEach(image => {
@@ -292,9 +281,7 @@
                     const productId = button.dataset.productId;
                     const product = allProducts[productId];
                     if (product) {
-                        // Message updated for uniform pricing
                         const priceMessage = `The listed price is ₦${product.price.toLocaleString('en-NG')}.`;
-                        
                         const message = `Hello, I would like to order the product: *${product.name}*. ${priceMessage} Please confirm availability and the total cost.`;
                         const encodedMessage = encodeURIComponent(message);
                         window.location.href = `https://wa.me/${WHATSAPP_PHONE_NUMBER}?text=${encodedMessage}`;
@@ -305,6 +292,7 @@
             });
         };
 
+        // Main execution on DOM Load
         document.addEventListener('DOMContentLoaded', () => {
             // Mobile menu toggle
             mobileMenuButton.addEventListener('click', () => {
