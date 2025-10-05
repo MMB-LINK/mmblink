@@ -40,30 +40,31 @@
             z-index: 20;
         }
         
-        /* === CUSTOM LOGO STYLES FOR WIDER LOOK - NOW EVEN BIGGER === */
+        /* === CUSTOM LOGO STYLES FOR WIDER LOOK === */
         .logo-img {
-            height: 85px; /* Taller */
+            height: 75px; /* Keep height same as before */
             width: auto;
-            max-width: 400px; /* **MAXIMIZED WIDTH** on small screens */
+            max-width: 350px; /* **MAXIMIZED WIDTH** on small screens */
             object-fit: contain; 
         }
         
         .footer-logo-img {
-            height: 100px; /* Taller in the footer */
-            max-width: 500px; /* **MAXIMIZED WIDTH** in the footer */
+            height: 85px; 
+            max-width: 400px; /* **MAXIMIZED WIDTH** in the footer */
             width: auto;
             object-fit: contain;
         }
 
         @media (min-width: 768px) {
             .logo-img {
-                max-width: 600px; /* EXTREMELY WIDE on desktop */
-                height: 120px; /* Taller on desktop */
+                max-width: 500px; /* **EXTREMELY WIDE** on desktop */
+                height: 100px; 
             }
         }
 
         /* === FIX FOR HERO SUBTEXT WRAPPING === */
         .hero-subtext {
+            /* Force the line to be constrained by a max-width and use a smaller font size on mobile */
             font-size: 1rem; /* Smaller font on mobile */
             line-height: 1.5;
             max-width: 90%;
