@@ -40,25 +40,25 @@
             z-index: 20;
         }
         
-        /* === CUSTOM LOGO STYLES FOR WIDER LOOK === */
+        /* === CUSTOM LOGO STYLES FOR MAXIMUM VISIBILITY === */
         .logo-img {
-            height: 40px; /* Reduced fixed height */
+            height: 60px; /* MUCH taller */
             width: auto;
-            max-width: 150px; /* Allows more width on small screens */
-            object-fit: contain; /* Important: ensures image fits and stretches to max-width */
+            max-width: 200px; /* MUCH wider on small screens */
+            object-fit: contain; 
         }
         
         .footer-logo-img {
-            height: 60px; /* Taller in the footer */
-            max-width: 200px; /* Wider in the footer */
+            height: 70px; /* Taller in the footer */
+            max-width: 250px; /* Wider in the footer */
             width: auto;
             object-fit: contain;
         }
 
         @media (min-width: 768px) {
             .logo-img {
-                max-width: 250px; /* Even wider on desktop */
-                height: 55px; /* Taller on desktop */
+                max-width: 300px; /* EVEN WIDER on desktop */
+                height: 75px; /* Taller on desktop */
             }
         }
         /* ========================================= */
@@ -145,17 +145,7 @@
             </div>
         </section>
 
-        <section class="bg-gray-900 text-white py-12 px-4">
-            <div class="container mx-auto text-center max-w-lg">
-                <h2 class="text-3xl font-bold mb-4">Join Our Mailing List</h2>
-                <p class="mb-6">Sign up for exclusive updates on new solar products and special discounts.</p>
-                <form class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <input type="email" placeholder="Enter your email" class="p-3 rounded-lg text-gray-900 w-full sm:flex-grow focus:outline-none focus:ring-2 focus:ring-indigo-500" required>
-                    <button type="submit" class="bg-indigo-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-indigo-700 transition-colors w-full sm:w-auto">Subscribe</button>
-                </form>
-            </div>
-        </section>
-    </main>
+        </main>
 
     <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4 hidden">
         <div class="relative max-w-4xl max-h-[90vh]">
