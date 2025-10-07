@@ -15,7 +15,6 @@
       scroll-behavior: smooth;
     }
 
-    /* Glow animation for Sustainable Energy heading */
     @keyframes pulseGlow {
       0%, 100% { text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99; }
       50% { text-shadow: 0 0 20px #00ff99, 0 0 40px #00ff99; }
@@ -25,7 +24,6 @@
       animation: pulseGlow 3s infinite ease-in-out;
     }
 
-    /* Feature cards */
     .feature-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -34,7 +32,6 @@
       box-shadow: 0 0 25px rgba(0, 255, 100, 0.4);
     }
 
-    /* Gradient background for Sustainable Energy section */
     .energy-section {
       background: radial-gradient(circle at top left, #0f2f1f, #02130a 70%);
       color: white;
@@ -105,21 +102,18 @@
       </p>
 
       <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <!-- Card 1 -->
         <div class="feature-card bg-green-800/30 p-8 rounded-2xl shadow-lg hover:bg-green-700/40" data-aos="zoom-in">
           <div class="text-4xl mb-4">🌞</div>
           <h3 class="text-2xl font-semibold mb-2 text-green-400">Solar Power</h3>
           <p>Harnessing sunlight to deliver clean, renewable energy for homes and businesses.</p>
         </div>
 
-        <!-- Card 2 -->
         <div class="feature-card bg-green-800/30 p-8 rounded-2xl shadow-lg hover:bg-green-700/40" data-aos="zoom-in" data-aos-delay="100">
           <div class="text-4xl mb-4">🌬️</div>
           <h3 class="text-2xl font-semibold mb-2 text-green-400">Wind Solutions</h3>
           <p>Driving innovation in wind energy to generate reliable and sustainable power sources.</p>
         </div>
 
-        <!-- Card 3 -->
         <div class="feature-card bg-green-800/30 p-8 rounded-2xl shadow-lg hover:bg-green-700/40" data-aos="zoom-in" data-aos-delay="200">
           <div class="text-4xl mb-4">⚙️</div>
           <h3 class="text-2xl font-semibold mb-2 text-green-400">Smart Systems</h3>
@@ -130,9 +124,23 @@
   </section>
 
   <!-- Products Section -->
-  <section id="products" class="py-16 text-center" data-aos="fade-up">
+  <section id="products" class="py-16 text-center bg-gray-50" data-aos="fade-up">
     <h2 class="text-4xl font-bold mb-6 text-green-700">Our Products</h2>
-    <p class="max-w-3xl mx-auto text-gray-600">Explore our innovative line of solar kits, power inverters, and smart monitoring systems designed for efficiency and reliability.</p>
+    <p class="max-w-3xl mx-auto text-gray-600 mb-12">Explore our innovative line of solar kits, power inverters, and smart monitoring systems designed for efficiency and reliability.</p>
+
+    <div class="container mx-auto px-4">
+      <div class="mb-12">
+        <h3 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 pb-2">Solar Gadgets</h3>
+        <div id="solar-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+      </div>
+
+      <hr class="border-gray-200 my-8">
+
+      <div>
+        <h3 class="text-2xl font-semibold mb-6 border-b-2 border-gray-300 pb-2">Bikes</h3>
+        <div id="bike-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+      </div>
+    </div>
   </section>
 
   <!-- Footer -->
@@ -143,8 +151,60 @@
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
+
+  <!-- Product Rendering Script -->
+  <script type="module">
     AOS.init({ duration: 1000, once: true });
+
+    const products = {
+      solar: [
+        {
+          name: 'Super Power mmb • link Solar Fan',
+          image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Model%20name%20Super%20Power%20mmb%20%E2%80%A2%20link%20Solar%20Fan.jpeg',
+          description: 'A powerful, quiet, and oscillating fan with LED light features.',
+          price: 9999
+        },
+        {
+          name: 'Solar Power Generator 500W',
+          image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Solar%20power%20generator%20500W%20sine%20wave%20512%20watt-hour%20battery.jpeg',
+          description: 'Portable power station for reliable, clean energy anywhere.',
+          price: 9999
+        },
+      ],
+      bikes: [
+        {
+          name: 'D100 Electric Bike',
+          image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Bike%20name%20D100.jpeg',
+          description: 'Powerful e-bike with a 1000W motor and cruise control.',
+          price: 9999
+        },
+        {
+          name: 'D11 GT Electric Bike',
+          image: 'https://raw.githubusercontent.com/RECRUIT-CONNECT-NIGLTD/mmblink/main/Bike%20name%20D11%20GT.jpeg',
+          description: 'High-performance electric bike with dual disc brakes.',
+          price: 9999
+        }
+      ]
+    };
+
+    const renderProducts = (gridId, items) => {
+      const grid = document.getElementById(gridId);
+      grid.innerHTML = items.map(p => `
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transform transition">
+          <img src="${p.image}" alt="${p.name}" class="w-full h-64 object-cover">
+          <div class="p-6">
+            <h4 class="text-xl font-semibold text-gray-900 mb-2">${p.name}</h4>
+            <p class="text-gray-600 mb-4">${p.description}</p>
+            <span class="text-green-700 font-bold text-lg">₦${p.price.toLocaleString()}</span>
+          </div>
+        </div>
+      `).join('');
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderProducts('solar-products-grid', products.solar);
+      renderProducts('bike-products-grid', products.bikes);
+    });
   </script>
 </body>
 </html>
